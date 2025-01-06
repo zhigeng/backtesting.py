@@ -136,7 +136,8 @@ def compute_stats(
     s.loc['Avg. Trade [%]'] = mean_return * 100
     s.loc['Max. Trade Duration'] = _round_timedelta(durations.max())
     s.loc['Avg. Trade Duration'] = _round_timedelta(durations.mean())
-    s.loc['Profit Factor'] = returns[returns > 0].sum() / (abs(returns[returns < 0].sum()) or np.nan)  # noqa: E501
+    # calculate profit factor using total absolute gains divided by total absolute loss
+    s.loc['Profit Factor'] = pl[pl > 0].sum() / (abs(pl[pl < 0].sum()) or np.nan)  # noqa: E501
     s.loc['Expectancy [%]'] = returns.mean() * 100
     s.loc['SQN'] = np.sqrt(n_trades) * pl.mean() / (pl.std() or np.nan)
     s.loc['Kelly Criterion'] = win_rate - (1 - win_rate) / (pl[pl > 0].mean() / -pl[pl < 0].mean())

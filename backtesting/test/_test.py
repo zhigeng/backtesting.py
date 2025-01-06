@@ -271,7 +271,7 @@ class TestBacktest(TestCase):
                 'Max. Drawdown Duration': pd.Timedelta('584 days 00:00:00'),
                 'Max. Drawdown [%]': -47.98012705007589,
                 'Max. Trade Duration': pd.Timedelta('183 days 00:00:00'),
-                'Profit Factor': 2.167945974262033,
+                'Profit Factor': 1.4778410020970645,
                 'Return (Ann.) [%]': 21.180255813792282,
                 'Return [%]': 414.2298999999996,
                 'Volatility (Ann.) [%]': 36.49390889140787,
